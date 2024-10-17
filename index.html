@@ -139,13 +139,7 @@
                 resultDiv.innerHTML += `<https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3U3Njd0ZGxpdzlrd2JhNG1seGkxNmg4eDk4bGhkY2lncmJ6bmwxcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gI0yX7C21YlHRZHrxR/giphy.webp">`;
             }
 
-            // Display individual compatibility scores
-            QUESTIONS.forEach((q, index) => {
-                const userAnswer = parseInt(document.getElementById(`answer${index}`).value);
-                const scoreDiff = Math.abs(userAnswer - q.answer);
-                resultDiv.innerHTML += `<br/>Question ${index + 1}: ${scoreDiff} compatibility score`;
-            });
-        }
+        
 
         // Event listener for the submit button
         document.getElementById("submit").addEventListener("click", () => {
