@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 True Love Compatibility Test 💖</title>
+    <title>True Love Compatibility Test</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #98d2fc;
+            background-color: #f8bbd0; /* Light pink background */
             margin: 0;
             padding: 20px;
-            <img src="https://media.giphy.com/media/UVk5yzljef0kGiayL1/giphy.gif?cid=790b7611wyo6bo7av1zjauawh29fk51epnf8w4qjpplyvp7r&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Cute">}
-        h1 {text-align: center;}
+            text-align: center;
+        }
+        h1 {
+            color: #880e4f; /* Dark pink */
+        }
         .container {
             max-width: 600px;
             margin: auto;
-            background-color; #yellow;
+            background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -32,20 +35,24 @@
             display: block;
             margin: 20px auto;
             padding: 10px 15px;
-            background-color: #007bff;
+            background-color: #d81b60; /* Darker pink */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #c2185b;
         }
         .result {
             margin-top: 20px;
             padding: 10px;
-            background: #e9ecef;
+            background: #ffe0f0; /* Lighter pink */
             border-radius: 5px;
+        }
+        img {
+            max-width: 100px; /* Adjust size of GIF */
+            height: auto;
         }
     </style>
 </head>
@@ -63,9 +70,10 @@
     </div>
 
     <script>
+        // Constants
         const QUESTIONS = [
             { question: "I love outdoor activities.", answer: 5 },
-            { question: "I enjoy .", answer: 4 },
+            { question: "I enjoy trying new foods.", answer: 4 },
             { question: "I prefer quiet nights in over parties.", answer: 3 },
             { question: "I believe in love at first sight.", answer: 4 },
             { question: "I want to travel the world someday.", answer: 5 }
@@ -77,6 +85,7 @@
             runAway: 0
         };
 
+        // Function to create question elements
         function createQuestionElements() {
             const questionContainer = document.getElementById("questions");
             QUESTIONS.forEach((q, index) => {
@@ -87,6 +96,7 @@
             });
         }
 
+        // Validation function
         function validate() {
             for (let i = 0; i < QUESTIONS.length; i++) {
                 const answer = document.getElementById(`answer${i}`).value;
@@ -98,6 +108,7 @@
             return true;
         }
 
+        // Calculate compatibility
         function calculateCompatibility() {
             let totalScore = 0;
 
@@ -111,6 +122,7 @@
             return finalScore;
         }
 
+        // Display result
         function displayResult(score) {
             const resultDiv = document.getElementById("result");
             resultDiv.style.display = "block";
@@ -118,13 +130,24 @@
 
             if (score >= THRESHOLDS.trueLove) {
                 resultDiv.innerHTML += "💖 True Love! 💖";
+                resultDiv.innerHTML += `<https://media2.giphy.com/media/RDwjLqQ1P6CLC/200.webp?cid=790b7611rhp00mu5hnu6qbllh4qh45w5ejfg87sfg2k1z12t&ep=v1_gifs_search&rid=200.webp&ct=g">`;
             } else if (score >= THRESHOLDS.friends) {
-                resultDiv.innerHTML += "😊 Potential Friends!";
+                resultDiv.innerHTML += "😊 Friendzoned!";
+                resultDiv.innerHTML += `<https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGpndTMwcHRrcnJ4cDl4a2tibnpvd3JlNW5xMG1xem4zbnowbG4ybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/F6zkGyRprztINoInaL/giphy.webp">`;
             } else {
                 resultDiv.innerHTML += "⚠️ You might want to run away!";
+                resultDiv.innerHTML += `<https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3U3Njd0ZGxpdzlrd2JhNG1seGkxNmg4eDk4bGhkY2lncmJ6bmwxcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gI0yX7C21YlHRZHrxR/giphy.webp">`;
             }
+
+            // Display individual compatibility scores
+            QUESTIONS.forEach((q, index) => {
+                const userAnswer = parseInt(document.getElementById(`answer${index}`).value);
+                const scoreDiff = Math.abs(userAnswer - q.answer);
+                resultDiv.innerHTML += `<br/>Question ${index + 1}: ${scoreDiff} compatibility score`;
+            });
         }
 
+        // Event listener for the submit button
         document.getElementById("submit").addEventListener("click", () => {
             if (validate()) {
                 const score = calculateCompatibility();
@@ -132,6 +155,7 @@
             }
         });
 
+        // Initialize the questions
         createQuestionElements();
     </script>
 </body>
