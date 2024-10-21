@@ -54,11 +54,11 @@ button:hover {
 
 .gif {
     position: absolute;
-    width: 500px;
+    width: 100px;
     z-index: 0;
 }
 
 .gif1 { top: 20%; left: 20%; }
-.gif2 { top: 20%; right: 15%; }
-.gif3 { bottom: 10%; left: 5%; }
-.gif4 { bottom: 15%; right: 10%; }
+.gif2 { top: 20%; right: 20%; }
+.gif3 { bottom: 20%; left: 20%; }
+.gif4 { bottom: 20%; right: 20%; }
