@@ -1,3 +1,4 @@
+
 const QUESTIONS = [
     { question: "Christmas is my favorite holiday.", answer: 5 },
     { question: "I like pickles.", answer: 1 },
@@ -7,6 +8,7 @@ const QUESTIONS = [
 ];
 
 const THRESHOLDS = {
+    marriage: 90,
     trueLove: 100,
     possibility: 60,
     friendzoned: 20,
@@ -52,10 +54,14 @@ function displayResult(score) {
     resultDiv.style.display = "block";
     resultDiv.innerHTML = `<strong>Your Compatibility Score: ${score.toFixed(2)}%</strong><br/>`;
 
-    if (score >= THRESHOLDS.trueLove) {
+    if (score >= THRESHOLDS.marriage) {
+        resultDiv.innerHTML += "💍 You should get married! 💍";
+    } else if (score >= THRESHOLDS.trueLove) {
         resultDiv.innerHTML += "💖 True Love! 💖";
-    } else if (score >= THRESHOLDS.friends) {
-        resultDiv.innerHTML += "🥶 FriendZoned!";
+    } else if (score >= THRESHOLDS.possibility) {
+        resultDiv.innerHTML += "🥳 There’s a possibility!";
+    } else if (score >= THRESHOLDS.friendzoned) {
+        resultDiv.innerHTML += "🥶 Friendzoned!";
     } else {
         resultDiv.innerHTML += "⚠️ You might want to run away!";
     }
@@ -68,4 +74,12 @@ document.getElementById("submit").addEventListener("click", () => {
     }
 });
 
+// Reset functionality
+document.getElementById("reset").addEventListener("click", () => {
+    document.getElementById("result").style.display = "none";
+    document.getElementById("questions").innerHTML = "";
+    createQuestionElements();
+});
+
+// Initialize questions
 createQuestionElements();
