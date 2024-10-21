@@ -58,7 +58,7 @@ button:hover {
     z-index: 0;
 }
 
-.gif1 { top: 20%; left: 20%; }
+.gif1 { top: 10%; left: 15%; }
 .gif2 { top: 15%; right: 10%; }
-.gif3 { bottom: 20%; left: 20%; }
-.gif4 { bottom: 20%; right: 20%; }
+.gif3 { bottom: 10%; left: 20%; }
+.gif4 { bottom: 10%; right: 15%; }
